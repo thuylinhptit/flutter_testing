@@ -14,77 +14,79 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Form(
-            key: _formkey,
-            child: ListView(
-              children: <Widget>[
-                Container(
-                  margin: const EdgeInsets.only(top: 10),
-                  child: const Center(
-                    child: Text('Login'),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Login'),
+          centerTitle: true,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+              key: _formkey,
+              child: ListView(
+                children: <Widget>[
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
+                    child: const Center(
+                      child: Text('Login'),
+                    ),
                   ),
-                ),
-                TextFormField(
-                  decoration: const InputDecoration(labelText: "Email"),
-                  validator: (v) => FormValidator.validateEmail(v!),
-                  onSaved: (value) {
-                    _email = value!.trim();
-                  },
-                ),
-                TextFormField(
-                  decoration: const InputDecoration(labelText: "Password"),
-                  obscureText: true,
-                  validator: (v) => FormValidator.validatePassword(v!),
-                  onSaved: (value) {
-                    _password = value!.trim();
-                  },
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                RaisedButton(
-                  onPressed: login,
-                  child: const Text('Login'),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  children: [
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    GestureDetector(
-                      child: const Text("Sign up"),
-                      onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => SignUp()));
-                      },
-                    ),
-                    const Spacer(),
-                    GestureDetector(
-                      child: const Text("Forgot Password"),
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ForgotPass()));
-                      },
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                  ],
-                )
-              ],
-            )),
+                  TextFormField(
+                    decoration: const InputDecoration(labelText: "Email"),
+                    validator: (v) => FormValidator.validateEmail(v!),
+                    onSaved: (value) {
+                      _email = value!.trim();
+                    },
+                  ),
+                  TextFormField(
+                    decoration: const InputDecoration(labelText: "Password"),
+                    obscureText: true,
+                    validator: (v) => FormValidator.validatePassword(v!),
+                    onSaved: (value) {
+                      _password = value!.trim();
+                    },
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  RaisedButton(
+                    onPressed: login,
+                    child: const Text('Login'),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    children: [
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      GestureDetector(
+                        child: const Text("Sign up"),
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => SignUp()));
+                        },
+                      ),
+                      const Spacer(),
+                      GestureDetector(
+                        child: const Text("Forgot Password"),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ForgotPass()));
+                        },
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                    ],
+                  )
+                ],
+              )),
+        ),
       ),
     );
   }
